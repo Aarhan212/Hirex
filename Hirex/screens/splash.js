@@ -53,14 +53,14 @@ const styles = StyleSheet.create({
   s_heading: {
     color: "#000000",
     fontWeight: "bold",
-    fontSize: 100,
+    fontSize: 80,
   },
   s_xlogo: {
     color: "#0679FF",
   },
   s_subheading: {
     color: "#3D4968",
-    fontSize: 20,
+    fontSize: 15,
     marginVertical: 15,
   },
   s_power: {
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   s_jinalogo: {
-    width: 140,
-    height: 140,
+    width: 100,
+    height: 100,
   },
 });
 
