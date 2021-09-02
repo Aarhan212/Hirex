@@ -11,9 +11,7 @@ import Splash from "./screens/splash";
 import Search from "./screens/search";
 
 export default function App() {
-  return (
-    <Splash/>
-  );
+  return <Home />;
 }
 
 const AppSwitchNavigator = createSwitchNavigator({
