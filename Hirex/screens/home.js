@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TextInput, View, SafeAreaView, Image, StyleSheet, Pressable, TouchableOpacity } from 'react-native';
 
 
+
 const Home = () => {
     return(
         <SafeAreaView style={{backgroundColor:"#EEEE",height:"100%"}}>
@@ -12,13 +13,15 @@ const Home = () => {
                 </View>
                 <Image source={require('../assets/remote-team.png')} style={styles.h_image} />
                 <View style={styles.h_buttons}>
-                    <Pressable style={styles.h_login}><Text style={{color:"#FFFF"}}>Login</Text></Pressable>
+                    <Pressable style={styles.h_login} ><Text style={{color:"#FFFF"}}>Login</Text></Pressable>
                     <Pressable style={styles.h_signup}><Text style={{color:"#FFFF"}}>Create a new account</Text></Pressable>
                 </View>
             </View>
         </SafeAreaView>
     );
 };
+
+
 
 const styles = StyleSheet.create({
     h_layout: {
