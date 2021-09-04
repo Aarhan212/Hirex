@@ -5,6 +5,7 @@ import Login from '../screens/login'
 import Signup from '../screens/signup'
 import Dashboard from '../screens/dashboard'
 import MoreInfo from '../screens/moreInfo'
+import Search from '../screens/search'
 
 
 const SwitchNavigator = createSwitchNavigator(
@@ -23,6 +24,9 @@ const SwitchNavigator = createSwitchNavigator(
         },
         Dashboard:{
             screen:Dashboard
+        },
+        Search:{
+            screen:Search
         }
     },
     {

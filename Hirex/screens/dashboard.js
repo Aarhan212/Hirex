@@ -59,7 +59,10 @@ class Dashboard extends React.Component {
                         <View style={{borderBottomColor: 'blue',borderBottomWidth: 6,width:100,alignSelf:'center',marginLeft:60,borderRadius:30}}/>
                     </View>
                 </View>
-                <Button title='Logout' onPress={this.handleSignout} />
+                <View style={{flexDirection:'row',alignItems:'center',marginHorizontal:30,justifyContent:'center'}}>
+                <Pressable style={{backgroundColor:"#0679FF",paddingHorizontal:50,paddingVertical:30, borderRadius:12,margin:5}} onPress={this.handleSignout} ><Text style={{color:'#FFFF',fontSize:20,fontWeight:'bold'}}>Logout</Text></Pressable>
+                <Pressable style={{backgroundColor:"#0679FF",paddingHorizontal:50,paddingVertical:30,borderRadius:12,margin:5}} onPress={()=>this.props.navigation.navigate('Search')} ><Text style={{color:'#FFFF',fontSize:20,fontWeight:'bold'}}>Search</Text></Pressable>
+                </View>
             </View>
             </ScrollView>
         </SafeAreaView>
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
         flexDirection:'column',
     },
     d_text:{
-        marginTop:100,
+        marginTop:70,
         marginBottom:50,
         marginHorizontal:30,
     },

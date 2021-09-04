@@ -51,18 +51,7 @@ class Signup extends React.Component {
                 <Text style={{ color: "white" }}>Signup</Text>
             </Pressable>
             <View style={styles.l_media}>
-                <Image
-                source={require("../assets/icons1.png")}
-                style={styles.l_facebook}
-                />
-                <Image
-                source={require("../assets/icons2.png")}
-                style={styles.l_facebook}
-                />
-                <Image
-                source={require("../assets/icons3.png")}
-                style={styles.l_facebook}
-                />
+                <Pressable onPress={() => this.props.navigation.navigate('Login')}><Text>Already have an account Login</Text></Pressable>
             </View>
             </View>
         </View>
@@ -164,7 +153,7 @@ const styles = StyleSheet.create({
   },
   l_media: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
     marginTop: 40,
     marginHorizontal: 30,
   },
