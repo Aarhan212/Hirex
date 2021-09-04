@@ -1,13 +1,20 @@
 import React from 'react';
-import { Text, TextInput, View, SafeAreaView, Image, StyleSheet, Pressable, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, TextInput, View, SafeAreaView, Image, StyleSheet, Pressable, TouchableOpacity, ScrollView,Button } from 'react-native';
+import Firebase from '../config';
+import { connect } from 'react-redux'
 
-const Dashboard = () => {
+class Dashboard extends React.Component {
+    handleSignout = () => {
+        Firebase.auth().signOut()
+        this.props.navigation.navigate('Login')
+    }
+    render(){
     return(
         <SafeAreaView>
             <ScrollView>
             <View style={styles.d_layout}>
                 <View style={styles.d_text}>
-                    <Text style={styles.d_hey}>Hey Devansh,</Text>
+                    <Text style={styles.d_hey}>Hey {this.props.user.email},</Text>
                     <Text style={styles.d_welcome}>Welcome back!</Text>
                 </View>
                 <View style={styles.d_container1}>
@@ -52,10 +59,12 @@ const Dashboard = () => {
                         <View style={{borderBottomColor: 'blue',borderBottomWidth: 6,width:100,alignSelf:'center',marginLeft:60,borderRadius:30}}/>
                     </View>
                 </View>
+                <Button title='Logout' onPress={this.handleSignout} />
             </View>
             </ScrollView>
         </SafeAreaView>
     )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -127,4 +136,11 @@ const styles = StyleSheet.create({
 })
 
 
-export default Dashboard
+
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps)(Dashboard)

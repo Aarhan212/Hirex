@@ -9,48 +9,76 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
+import Firebase from "../config";
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { updateEmail, updatePassword, login, getUser } from '../actions/user'
 
-const Login = () => {
-  return (
-    <SafeAreaView style={{ backgroundColor: "#0679FF" }}>
-      <View style={styles.l_layout}>
-        <View style={styles.l_box1}>
-          <Image
-            source={require("../assets/login4.png")}
-            styles={styles.l_image}
-          />
+
+class Login extends React.Component {
+    handleLogin = () => {
+        this.props.login()
+        if (this.props.user != null) {
+            this.props.navigation.navigate('Dashboard')
+        }
+    }
+  componentDidMount = () => {
+        Firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.props.getUser(user.uid)
+                if (this.props.user != null) {
+                    this.props.navigation.navigate('Dashboard')
+                }
+            }
+        })
+    }
+  render(){
+    return (
+        <SafeAreaView style={{ backgroundColor: "#0679FF" }}>
+        <View style={styles.l_layout}>
+            <View style={styles.l_box1}>
+            <Image
+                source={require("../assets/login4.png")}
+                styles={styles.l_image}
+            />
+            </View>
+            <View style={styles.l_box2}>
+            <Text style={styles.l_heading}>Welcome Back</Text>
+            <TextInput
+                value={this.props.user.email}
+                onChangeText={email => this.props.updateEmail(email)}
+                style={styles.l_input1}
+                placeholder="   Enter your email"
+            />
+            <TextInput
+                value={this.props.user.password}
+                onChangeText={password => this.props.updatePassword(password)}
+                style={styles.l_input2}
+                placeholder="   Enter your password"
+                secureTextEntry={true}
+            />
+            <Pressable style={styles.l_button} onPress={this.handleLogin}>
+                <Text style={{ color: "white" }}>Login</Text>
+            </Pressable>
+            <View style={styles.l_media}>
+                <Image
+                source={require("../assets/icons1.png")}
+                style={styles.l_facebook}
+                />
+                <Image
+                source={require("../assets/icons2.png")}
+                style={styles.l_facebook}
+                />
+                <Image
+                source={require("../assets/icons3.png")}
+                style={styles.l_facebook}
+                />
+            </View>
+            </View>
         </View>
-        <View style={styles.l_box2}>
-          <Text style={styles.l_heading}>Welcome Back</Text>
-          <TextInput
-            style={styles.l_input1}
-            placeholder="   Enter your email"
-          />
-          <TextInput
-            style={styles.l_input2}
-            placeholder="   Enter your password"
-          />
-          <Pressable style={styles.l_button}>
-            <Text style={{ color: "white" }}>Login</Text>
-          </Pressable>
-          <View style={styles.l_media}>
-            <Image
-              source={require("../assets/icons1.png")}
-              style={styles.l_facebook}
-            />
-            <Image
-              source={require("../assets/icons2.png")}
-              style={styles.l_facebook}
-            />
-            <Image
-              source={require("../assets/icons3.png")}
-              style={styles.l_facebook}
-            />
-          </View>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
+        </SafeAreaView>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
@@ -152,4 +180,19 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators({ updateEmail, updatePassword, login, getUser }, dispatch)
+}
+
+const mapStateToProps = state => {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Login)
+
+
