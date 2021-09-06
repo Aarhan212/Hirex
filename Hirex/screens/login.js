@@ -9,6 +9,7 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
+<<<<<<< HEAD
 
 const Login = () => {
   return (
@@ -51,6 +52,67 @@ const Login = () => {
       </View>
     </SafeAreaView>
   );
+=======
+import Firebase from "../config";
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { updateEmail, updatePassword, login, getUser } from '../actions/user'
+
+
+class Login extends React.Component {
+    handleLogin = () => {
+        this.props.login()
+        if (this.props.user != null) {
+            this.props.navigation.navigate('Dashboard')
+        }
+    }
+  componentDidMount = () => {
+        Firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.props.getUser(user.uid)
+                if (this.props.user != null) {
+                    this.props.navigation.navigate('Dashboard')
+                }
+            }
+        })
+    }
+  render(){
+    return (
+        <SafeAreaView style={{ backgroundColor: "#0679FF" }}>
+        <View style={styles.l_layout}>
+            <View style={styles.l_box1}>
+            <Image
+                source={require("../assets/login4.png")}
+                styles={styles.l_image}
+            />
+            </View>
+            <View style={styles.l_box2}>
+            <Text style={styles.l_heading}>Welcome Back</Text>
+            <TextInput
+                value={this.props.user.email}
+                onChangeText={email => this.props.updateEmail(email)}
+                style={styles.l_input1}
+                placeholder="   Enter your email"
+            />
+            <TextInput
+                value={this.props.user.password}
+                onChangeText={password => this.props.updatePassword(password)}
+                style={styles.l_input2}
+                placeholder="   Enter your password"
+                secureTextEntry={true}
+            />
+            <Pressable style={styles.l_button} onPress={this.handleLogin}>
+                <Text style={{ color: "white" }}>Login</Text>
+            </Pressable>
+            <View style={styles.l_media}>
+                <Pressable onPress={() => this.props.navigation.navigate('Signup')}><Text>Dont have an account Signup</Text></Pressable>
+            </View>
+            </View>
+        </View>
+        </SafeAreaView>
+    );
+  }
+>>>>>>> parent of ddb4ce4 (delete)
 };
 
 const styles = StyleSheet.create({
@@ -146,10 +208,33 @@ const styles = StyleSheet.create({
   },
   l_media: {
     flexDirection: "row",
+<<<<<<< HEAD
     justifyContent: "space-around",
+=======
+    justifyContent: "center",
+>>>>>>> parent of ddb4ce4 (delete)
     marginTop: 40,
     marginHorizontal: 30,
   },
 });
 
+<<<<<<< HEAD
 export default Login;
+=======
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators({ updateEmail, updatePassword, login, getUser }, dispatch)
+}
+
+const mapStateToProps = state => {
+	return {
+		user: state.user
+	}
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Login)
+
+
+>>>>>>> parent of ddb4ce4 (delete)

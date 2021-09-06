@@ -9,6 +9,7 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
+<<<<<<< HEAD
 
 const Signup = () => {
   return (
@@ -51,6 +52,57 @@ const Signup = () => {
       </View>
     </SafeAreaView>
   );
+=======
+import Firebase from "../config";
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { updateEmail, updatePassword, signup } from '../actions/user'
+
+
+
+class Signup extends React.Component {
+    handleSignUp = () => {
+        this.props.signup()
+        this.props.navigation.navigate('MoreInfo')
+    }
+  render(){
+    return (
+        <SafeAreaView style={{ backgroundColor: "#0679FF" }}>
+        <View style={styles.l_layout}>
+            <View style={styles.s_box1}>
+            <Image
+                source={require("../assets/signup3.png")}
+                styles={styles.l_image}
+            />
+            </View>
+            <View style={styles.l_box2}>
+            <Text style={styles.l_heading}>Create Account</Text>
+            <TextInput
+                value={this.props.user.email}
+                onChangeText={email => this.props.updateEmail(email)}
+                style={styles.l_input1}
+                placeholder="   Enter your email"
+                
+            />
+            <TextInput
+                value={this.props.user.password}
+                onChangeText={password => this.props.updatePassword(password)}
+                style={styles.l_input2}
+                placeholder="   Choose a strong password"
+                secureTextEntry={true}
+            />
+            <Pressable style={styles.l_button} onPress={this.handleSignUp}>
+                <Text style={{ color: "white" }}>Signup</Text>
+            </Pressable>
+            <View style={styles.l_media}>
+                <Pressable onPress={() => this.props.navigation.navigate('Login')}><Text>Already have an account Login</Text></Pressable>
+            </View>
+            </View>
+        </View>
+        </SafeAreaView>
+    );
+  }
+>>>>>>> parent of ddb4ce4 (delete)
 };
 
 const styles = StyleSheet.create({
@@ -146,10 +198,34 @@ const styles = StyleSheet.create({
   },
   l_media: {
     flexDirection: "row",
+<<<<<<< HEAD
     justifyContent: "space-around",
+=======
+    justifyContent: "center",
+>>>>>>> parent of ddb4ce4 (delete)
     marginTop: 40,
     marginHorizontal: 30,
   },
 });
 
+<<<<<<< HEAD
 export default Signup;
+=======
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({ updateEmail, updatePassword, signup }, dispatch)
+}
+
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Signup)
+
+
+
+>>>>>>> parent of ddb4ce4 (delete)
