@@ -14,13 +14,13 @@ import 'firebase/firestore'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVuIJHD7EtH3RyNCwKftz6lIpap8-_-4E",
-  authDomain: "hirex-958c4.firebaseapp.com",
-  projectId: "hirex-958c4",
-  storageBucket: "hirex-958c4.appspot.com",
-  messagingSenderId: "677723013524",
-  appId: "1:677723013524:web:7b59dce518cc240b388f81",
-  measurementId: "G-3N5HXGQC2R"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 const Firebase = firebase.initializeApp(firebaseConfig)
