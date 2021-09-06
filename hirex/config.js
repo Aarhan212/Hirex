@@ -1,9 +1,34 @@
-export const firebaseConfig = {
-    apiKey: "AIzaSyClV48XRuMSdGu02b6rOTLJoLwie_9dy8U",
-    authDomain: "getemployed-4a2ce.firebaseapp.com",
-    projectId: "getemployed-4a2ce",
-    storageBucket: "getemployed-4a2ce.appspot.com",
-    messagingSenderId: "1057941051951",
-    appId: "1:1057941051951:web:a2aa2481b31409a6c684da",
-    measurementId: "G-WBM5KKQML3"
-  };
+import firebase  from "firebase";
+/*import {
+  API_KEY,
+  AUTH_DOMAIN,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGE_SENDER_ID,
+  APP_ID,
+  MEASUREMENT_ID
+} from '@env'
+*/
+import 'firebase/firestore'
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCVuIJHD7EtH3RyNCwKftz6lIpap8-_-4E",
+  authDomain: "hirex-958c4.firebaseapp.com",
+  projectId: "hirex-958c4",
+  storageBucket: "hirex-958c4.appspot.com",
+  messagingSenderId: "677723013524",
+  appId: "1:677723013524:web:7b59dce518cc240b388f81",
+  measurementId: "G-3N5HXGQC2R"
+};
+
+const Firebase = firebase.initializeApp(firebaseConfig)
+
+export const db = firebase.firestore()
+
+db.settings({
+  timestampsInSnapshots: true
+})
+
+export default Firebase
