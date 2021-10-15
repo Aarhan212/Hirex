@@ -9,50 +9,6 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
-<<<<<<< HEAD
-
-const Signup = () => {
-  return (
-    <SafeAreaView style={{ backgroundColor: "#0679FF" }}>
-      <View style={styles.l_layout}>
-        <View style={styles.s_box1}>
-          <Image
-            source={require("../assets/signup3.png")}
-            styles={styles.l_image}
-          />
-        </View>
-        <View style={styles.l_box2}>
-          <Text style={styles.l_heading}>Create Account</Text>
-          <TextInput
-            style={styles.l_input1}
-            placeholder="   Enter your email"
-          />
-          <TextInput
-            style={styles.l_input2}
-            placeholder="   Choose a strong password"
-          />
-          <Pressable style={styles.l_button}>
-            <Text style={{ color: "white" }}>Signup</Text>
-          </Pressable>
-          <View style={styles.l_media}>
-            <Image
-              source={require("../assets/icons1.png")}
-              style={styles.l_facebook}
-            />
-            <Image
-              source={require("../assets/icons2.png")}
-              style={styles.l_facebook}
-            />
-            <Image
-              source={require("../assets/icons3.png")}
-              style={styles.l_facebook}
-            />
-          </View>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
-=======
 import Firebase from "../config";
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -102,7 +58,6 @@ class Signup extends React.Component {
         </SafeAreaView>
     );
   }
->>>>>>> parent of ddb4ce4 (delete)
 };
 
 const styles = StyleSheet.create({
@@ -198,19 +153,12 @@ const styles = StyleSheet.create({
   },
   l_media: {
     flexDirection: "row",
-<<<<<<< HEAD
-    justifyContent: "space-around",
-=======
     justifyContent: "center",
->>>>>>> parent of ddb4ce4 (delete)
     marginTop: 40,
     marginHorizontal: 30,
   },
 });
 
-<<<<<<< HEAD
-export default Signup;
-=======
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({ updateEmail, updatePassword, signup }, dispatch)
 }
@@ -228,4 +176,3 @@ export default connect(
 
 
 
->>>>>>> parent of ddb4ce4 (delete)

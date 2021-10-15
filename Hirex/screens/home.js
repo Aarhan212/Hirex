@@ -10,35 +10,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-<<<<<<< HEAD
-const Home = () => {
-  return (
-    <SafeAreaView style={{ backgroundColor: "#F5F5F5", height: "100%" }}>
-      <View style={styles.h_layout}>
-        <View style={styles.h_text}>
-          <Text style={styles.h_heading}>
-            Hire<Text style={styles.h_blue}>x</Text>
-          </Text>
-          <Text style={styles.h_stext}>Simplified Work Finding.</Text>
-        </View>
-        <Image
-          source={require("../assets/remote-team.png")}
-          style={styles.h_image}
-        />
-        <View style={styles.h_buttons}>
-          <Pressable style={styles.h_login}>
-            <Text style={{ color: "#FFFF", fontSize: "15" }}>Login</Text>
-          </Pressable>
-          <Pressable style={styles.h_signup}>
-            <Text style={{ color: "#000000", fontSize: "15" }}>
-              Create a new account
-            </Text>
-          </Pressable>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
-=======
 class Home extends React.Component {
     render(){
         return(
@@ -57,7 +28,6 @@ class Home extends React.Component {
             </SafeAreaView>
         );
     }
->>>>>>> parent of ddb4ce4 (delete)
 };
 
 const styles = StyleSheet.create({
@@ -75,38 +45,16 @@ const styles = StyleSheet.create({
   },
   h_text: {
     marginHorizontal: 25,
-<<<<<<< HEAD
-    marginVertical: 50,
-  },
-  h_stext: {
-    fontSize: 20,
-    marginHorizontal: 3,
-    marginVertical: 10,
-=======
-    marginVertical: 80,
-  },
-  h_stext: {
-    fontSize: 15,
-    marginHorizontal: 3,
->>>>>>> parent of ddb4ce4 (delete)
-  },
-  h_buttons: {
-    flexDirection: "column",
     justifyContent: "space-evenly",
     alignItems: "center",
     marginVertical: 60,
   },
   h_login: {
-    alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#0679FF",
     paddingVertical: 22,
     paddingHorizontal: 165,
-<<<<<<< HEAD
-    borderRadius: 40,
-=======
     borderRadius: 12,
->>>>>>> parent of ddb4ce4 (delete)
     marginVertical: 20,
     shadowColor: "#000",
     shadowOffset: {
@@ -124,11 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EEEEEE",
     paddingVertical: 22,
     paddingHorizontal: 110,
-<<<<<<< HEAD
-    borderRadius: 40,
-=======
     borderRadius: 12,
->>>>>>> parent of ddb4ce4 (delete)
 
     shadowColor: "#000",
     shadowOffset: {

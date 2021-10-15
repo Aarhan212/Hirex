@@ -1,9 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Text, TextInput, View, SafeAreaView, Image, StyleSheet, Pressable, TouchableOpacity, ScrollView } from 'react-native';
-
-const Dashboard = () => {
-=======
 import { Text, TextInput, View, SafeAreaView, Image, StyleSheet, Pressable, TouchableOpacity, ScrollView,Button } from 'react-native';
 import Firebase from '../config';
 import { connect } from 'react-redux'
@@ -14,17 +9,12 @@ class Dashboard extends React.Component {
         this.props.navigation.navigate('Login')
     }
     render(){
->>>>>>> parent of ddb4ce4 (delete)
     return(
         <SafeAreaView>
             <ScrollView>
             <View style={styles.d_layout}>
                 <View style={styles.d_text}>
-<<<<<<< HEAD
-                    <Text style={styles.d_hey}>Hey Devansh,</Text>
-=======
                     <Text style={styles.d_hey}>Hey {this.props.user.email},</Text>
->>>>>>> parent of ddb4ce4 (delete)
                     <Text style={styles.d_welcome}>Welcome back!</Text>
                 </View>
                 <View style={styles.d_container1}>
@@ -69,21 +59,15 @@ class Dashboard extends React.Component {
                         <View style={{borderBottomColor: 'blue',borderBottomWidth: 6,width:100,alignSelf:'center',marginLeft:60,borderRadius:30}}/>
                     </View>
                 </View>
-<<<<<<< HEAD
-=======
                 <View style={{flexDirection:'row',alignItems:'center',marginHorizontal:30,justifyContent:'center'}}>
                 <Pressable style={{backgroundColor:"#0679FF",paddingHorizontal:50,paddingVertical:30, borderRadius:12,margin:5}} onPress={this.handleSignout} ><Text style={{color:'#FFFF',fontSize:20,fontWeight:'bold'}}>Logout</Text></Pressable>
                 <Pressable style={{backgroundColor:"#0679FF",paddingHorizontal:50,paddingVertical:30,borderRadius:12,margin:5}} onPress={()=>this.props.navigation.navigate('Search')} ><Text style={{color:'#FFFF',fontSize:20,fontWeight:'bold'}}>Search</Text></Pressable>
                 </View>
->>>>>>> parent of ddb4ce4 (delete)
             </View>
             </ScrollView>
         </SafeAreaView>
     )
-<<<<<<< HEAD
-=======
     }
->>>>>>> parent of ddb4ce4 (delete)
 }
 
 const styles = StyleSheet.create({
@@ -91,11 +75,7 @@ const styles = StyleSheet.create({
         flexDirection:'column',
     },
     d_text:{
-<<<<<<< HEAD
-        marginTop:100,
-=======
         marginTop:70,
->>>>>>> parent of ddb4ce4 (delete)
         marginBottom:50,
         marginHorizontal:30,
     },
@@ -159,9 +139,6 @@ const styles = StyleSheet.create({
 })
 
 
-<<<<<<< HEAD
-export default Dashboard
-=======
 
 const mapStateToProps = state => {
     return {
@@ -170,4 +147,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Dashboard)
->>>>>>> parent of ddb4ce4 (delete)
